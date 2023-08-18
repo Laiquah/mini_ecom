@@ -53,7 +53,23 @@ export default createStore({
       } catch (e) {
         context.commit("setMsg", "an error occured")
       }
-    }
+    },
+    async fetchProducts (context) {
+      try {
+        const {data} = await axios.get(`${miniURL}products`)
+        context.commit("setProducts", data.results)
+      } catch (e) {
+        context.commit("setMsg", "an error occured")
+      }
+    },
+    async fetchProduct (context) {
+      try {
+        const {data} = await axios.get(`${miniURL}product`)
+        context.commit("setProduct", data.results)
+      } catch (e) {
+        context.commit("setMsg", "an error occured")
+      }
+    },
   },
   modules: {
   }
