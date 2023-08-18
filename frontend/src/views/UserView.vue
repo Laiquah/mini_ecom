@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row justify-content-center gap-3">
+        <div class="row justify-content-center gap-3"> -->
             <h3>User Interface</h3>
         </div>
         <div class="row justify-content-center gap-3" v-if="products">
