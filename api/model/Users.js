@@ -1,5 +1,6 @@
 const db = require("../config");
 const { hash, compare, hashSync } = require("bcrypt");
+const {createToken} = require('../middleware/AuthenticateUser')
 
 class Users {
   fetchUsers(req, res) {
@@ -34,7 +35,7 @@ class Users {
       password: data.userPass,
     };
     const query = `
-            INSERT INTO Users VALUES(?,?, '${
+            INSERT INTO Users VALUES(DEFAULT, ?, '${
               new Date().getFullYear() +
               "-" +
               "0" +
@@ -42,7 +43,7 @@ class Users {
               "-" +
               "0" +
               new Date().getDay()
-            }', ?);
+            }');
         `;
     db.query(query, [data], (err) => {
       if (err) throw err;
