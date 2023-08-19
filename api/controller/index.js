@@ -14,7 +14,7 @@ routes.get("/user/:id", (req, res)=>{
 routes.post("/login", bodyParser.json(), (req, res)=>{
     users.login(req, res)
 })
-routes.register("/register", bodyParser.json(), (req, res)=>{
+routes.post("/register", bodyParser.json(), (req, res)=>{
     users.register(req, res)
 })
 routes.patch("/user/:id", bodyParser.json(), (req, res)=>{
