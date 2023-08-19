@@ -48,6 +48,10 @@ class Users {
     db.query(query, [data], (err) => {
       if (err) throw err;
       let token = createToken(user);
+      res.cookie('imuser', token, {
+        expires: new Date(Date.now() + 259200000),
+        httpOnly: true
+      })
       res.json({
         status: res.statusCode,
         token,
