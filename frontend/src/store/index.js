@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-const miniURL = ''
+const miniURL = 'https://mini-e-commm.onrender.com/'
 
 export default createStore({
   state: {
