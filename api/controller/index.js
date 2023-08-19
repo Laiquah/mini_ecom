@@ -37,7 +37,7 @@ routes.post("/product", bodyParser.json(), (req, res)=>{
 routes.patch("/product", bodyParser.json(), (req, res)=>{
     products.updateProduct(req, res)
 })
-routes.delete("/removeProduct/:productID", (req, res)=>{
+routes.delete("/product/:productID", (req, res)=>{
     products.removeProduct(req, res)
 })
 
