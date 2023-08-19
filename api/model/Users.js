@@ -35,16 +35,8 @@ class Users {
       password: data.userPass,
     };
     const query = `
-            INSERT INTO Users VALUES(DEFAULT, ?, '${
-              new Date().getFullYear() +
-              "-" +
-              "0" +
-              new Date().getMonth() +
-              "-" +
-              "0" +
-              new Date().getDay()
-            }');
-        `;
+            INSERT INTO Users SET ?;
+        `
     db.query(query, [data], (err) => {
       if (err) throw err;
       let token = createToken(user);
@@ -55,7 +47,7 @@ class Users {
       res.json({
         status: res.statusCode,
         token,
-        msg: "User registered successfully",
+        msg: `User registered successfully, ${req.body}`,
       });
     });
   }
